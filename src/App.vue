@@ -1,10 +1,24 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <MenuComponent />
   <router-view/>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import MenuComponent from './components/MenuComponent.vue';
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    MenuComponent
+  },
+  setup() {
+
+
+    return {}
+  }
+})
+</script>
 
 <style>
 #app {
