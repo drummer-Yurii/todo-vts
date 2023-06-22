@@ -16,7 +16,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
+import { mapMutations } from 'vuex';
+import { Task } from '@/types/storeType';
 
 export default defineComponent({
     name: 'AddTaskView',
@@ -28,7 +30,14 @@ export default defineComponent({
     },
 
     methods: {
+        ...mapMutations(['addTask']),
         onSubmit() {
+            const newTask: Task = {
+                id: (new Date()).getTime(),
+                name: this.taskName,
+                description: this.taskDescription
+            } 
+            this.addTask(newTask);
             console.log(this.taskName, this.taskDescription);
             
         }
