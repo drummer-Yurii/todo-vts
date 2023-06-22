@@ -2,15 +2,15 @@
     <h1>Creating tasks</h1>
     <form>
         <div class="form_element">
-            <input type="text" placeholder="name task"/>
+            <input v-model="taskName" type="text" placeholder="name task"/>
         </div>
         <div class="form_element">
-            <textarea placeholder="task description">
+            <textarea v-model="taskDescription" placeholder="task description">
 
             </textarea>
         </div>
         <div class="form_element">
-            <button type="button">Create</button>
+            <button @click="onSubmit" type="button">Create</button>
         </div>
     </form>
 </template>
@@ -20,11 +20,19 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'AddTaskView',
-    setup () {
-        
+    data() {
+        return {
+            taskName: '',
+            taskDescription: ''
+        }
+    },
 
-        return {}
-    }
+    methods: {
+        onSubmit() {
+            console.log(this.taskName, this.taskDescription);
+            
+        }
+    },
 })
 </script>
 
