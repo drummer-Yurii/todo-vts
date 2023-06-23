@@ -12,9 +12,7 @@ export default createStore({
   },
   mutations: {
     addTask(state, task: Task) {
-      state.tasks.push(task);
-      console.log(state.tasks);
-      
+      state.tasks.push(task);      
     }
   },
   actions: {
