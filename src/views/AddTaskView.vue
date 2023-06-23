@@ -22,7 +22,7 @@ import { Task } from '@/types/storeType';
 
 export default defineComponent({
     name: 'AddTaskView',
-    data() {
+    data: function() {
         return {
             taskName: '',
             taskDescription: ''
@@ -32,14 +32,15 @@ export default defineComponent({
     methods: {
         ...mapMutations(['addTask']),
         onSubmit() {
+            const id = (new Date()).getTime();
             const newTask: Task = {
-                id: (new Date()).getTime(),
+                id: id,
                 name: this.taskName,
                 description: this.taskDescription
             } 
             this.addTask(newTask);
-            console.log(this.taskName, this.taskDescription);
             
+            this.$router.push(`/task/${id}`);
         }
     },
 })
